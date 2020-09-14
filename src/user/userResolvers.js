@@ -14,6 +14,12 @@ const userResolvers = {
             if( !targetUser )
                 throw new Error(`User Not Found.`);
             return targetUser;
+        },
+        passwordSalt: async (_, { name }, { dataSources }) => {
+            let existingUser = await dataSources.mongoModels.User.findOne({ name });
+            if ( !existingUser )
+                throw new Error(`Name not found.`);
+            return existingUser.passwordSalt;
         }
 	},
 	Mutation: {

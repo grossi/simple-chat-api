@@ -11,10 +11,11 @@ const userTypeDef = gql`
 	extend type Query {
 		user(id: ID!): User
 		myUser: User
+		passwordSalt(name: String!): String
 	}
 	extend type Mutation {
     addUser(name: String!, password: String!, passwordSalt: String): User
-		authUser(name: String!, password: String!): String!
+		authUser(name: String!, password: String!): String
 	}
 `;
 

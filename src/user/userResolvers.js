@@ -15,12 +15,6 @@ const userResolvers = {
                 throw new Error(`User Not Found.`);
             return targetUser;
         },
-        passwordSalt: async (_, { name }, { dataSources }) => {
-            let existingUser = await dataSources.mongoModels.User.findOne({ name });
-            if ( !existingUser )
-                throw new Error(`Name not found.`);
-            return existingUser.passwordSalt;
-        }
 	},
 	Mutation: {
         addUser: async (_, { name, password, passwordSalt }, { dataSources }) => {
@@ -44,6 +38,12 @@ const userResolvers = {
             } else {
                 throw Error("User not found while trying to authenticate");
             }
+        },
+        passwordSalt: async (_, { name }, { dataSources }) => {
+            let existingUser = await dataSources.mongoModels.User.findOne({ name });
+            if ( !existingUser )
+                throw new Error(`Name not found.`);
+            return existingUser.passwordSalt;
         },
 	},
 };

@@ -6,6 +6,7 @@ const messageTypeDef = gql`
 		title: String
 		text: String
 		creator: User
+		timeStamp: String
 	}
 	extend type Query {
     messages: [Message]

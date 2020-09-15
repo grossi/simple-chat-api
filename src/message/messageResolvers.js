@@ -14,7 +14,8 @@ const messageResolvers = {
         addMessage: async (_, { text }, { dataSources, userId }) => {
             let newMessage = new dataSources.mongoModels.Message({
                 text,
-                creatorId: userId
+                creatorId: userId,
+                timeStamp: Date.now()
             });
             return newMessage.save();
         },

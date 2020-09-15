@@ -5,7 +5,8 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const messageSchema = new Schema({
 	text: String,
-	creatorId: ObjectId
+	creatorId: ObjectId,
+	timeStamp: Date
 });
 
 module.exports = mongoose.model('Message', messageSchema);

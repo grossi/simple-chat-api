@@ -6,7 +6,7 @@ const messageResolvers = {
 
                 if (skip < 0) skip = 0;
 
-                return dataSources.mongoModels.Message.find({}, null, { limit, skip: skip - limit });
+                return dataSources.mongoModels.Message.find({}, null, { limit, skip: skip });
             }
             return dataSources.mongoModels.Message.find();
         },
@@ -22,7 +22,7 @@ const messageResolvers = {
             let newMessage = new dataSources.mongoModels.Message({
                 text,
                 creatorId: userId,
-                timeStamp: Date.now()
+                timeStamp: String(Date.now())
             });
             await newMessage.save();
 

@@ -8,6 +8,7 @@ import messageResolvers from './message/messageResolvers';
 const queryTypeDef = gql`
 	type Query
 	type Mutation
+	type Subscription
 `;
 
 module.exports = {

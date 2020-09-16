@@ -9,8 +9,11 @@ const messageTypeDef = gql`
 		timeStamp: String
 	}
 	extend type Query {
-    messages: [Message]
+    messages(limit: Int): [Message]
 		message(id: ID!): Message
+	}
+	extend type Subscription {
+		newMessage: Message
 	}
 	extend type Mutation {
   	addMessage(title: String, text: String!): Message

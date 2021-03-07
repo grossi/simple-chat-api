@@ -3,7 +3,6 @@ import { gql } from 'apollo-server';
 const messageTypeDef = gql`
 	type Message {
 		id: ID!
-		title: String
 		text: String
 		creator: User
 		timeStamp: String
@@ -16,7 +15,7 @@ const messageTypeDef = gql`
 		newMessage: Message
 	}
 	extend type Mutation {
-  	addMessage(title: String, text: String!): Message
+  	addMessage(text: String!): Message
 	}
 `;
 

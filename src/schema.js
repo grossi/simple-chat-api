@@ -4,6 +4,8 @@ import userTypeDef from './user/userSchema';
 import userResolvers from './user/userResolvers';
 import messageTypeDef from './message/messageSchema';
 import messageResolvers from './message/messageResolvers';
+import roomTypeDef from './room/roomSchema';
+import roomResolvers from './room/roomResolvers';
 
 const queryTypeDef = gql`
 	type Query
@@ -16,9 +18,11 @@ module.exports = {
 		queryTypeDef,
 		userTypeDef,
 		messageTypeDef,
+		roomTypeDef,
 	],
 	resolvers: merge( 
 		userResolvers, 
 		messageResolvers, 
+		roomResolvers,
 	)
 };
